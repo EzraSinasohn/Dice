@@ -233,7 +233,7 @@ void mouseReleased() {
   dice.vy = (mouseY - pmouseY)/2;
 }*/
 void setup() {
-  size(1500, 1200, P3D);
+  size(1500, 1000, P3D);
   loop();
   for(int i = 0; i < numDice; i++) {diceList[i] = new Dice((int) (Math.random()*width), (int) (
     Math.random()*(height-110)), (float) (Math.random()*2*PI), (float) (Math.random()*2*PI), (float) (Math.random()*2*PI), 0.5, 0, 0, i);

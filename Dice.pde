@@ -1,5 +1,6 @@
 int numDice = 20;
 float diceSize = 80;
+int offscreen = 0;
 float rx, ry, changeX, changeY, oX, oY;
 boolean stop;
 Dice dice[];
@@ -177,7 +178,7 @@ public class Dice {
   
   void randomBoost() {
     this.vx = (float) (Math.random()*60-30);
-    this.vy = (float) (Math.random()*-10-15); 
+    this.vy = (float) (Math.random()*-30-15); 
   }
   
   void collision() {
@@ -234,6 +235,7 @@ void mouseReleased() {
 }*/
 void setup() {
   size(1500, 1000, P3D);
+  textSize(100);
   loop();
   for(int i = 0; i < numDice; i++) {diceList[i] = new Dice((int) (Math.random()*width), (int) (
     Math.random()*(height-110)), (float) (Math.random()*2*PI), (float) (Math.random()*2*PI), (float) (Math.random()*2*PI), 0.5, 0, 0, i);
@@ -245,7 +247,12 @@ void setup() {
 void draw() {
   background(100);
   drawFloor();
-  for(int i = 0; i < numDice; i++) {diceList[i].diceBuild();}
+  offscreen = 0;
+  for(int i = 0; i < numDice; i++) {
+  diceList[i].diceBuild();
+  if(diceList[i].originY < 0) {offscreen += 1;}
+}
+  text(numDice-offscreen, 50, 100);
 }
 
 void drawFloor() {
@@ -263,5 +270,3 @@ void keyPressed() {
     for(int i = 0; i < numDice; i++) {diceList[i].randomBoost();}
   }
 }
-
-

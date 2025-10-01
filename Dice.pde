@@ -1,5 +1,5 @@
-int numDice = 100;
-float diceSize = 40;
+int numDice = 20;
+float diceSize = 80;
 float rx, ry, changeX, changeY, oX, oY;
 boolean stop;
 Dice dice[];

@@ -234,7 +234,6 @@ void mouseReleased() {
 }*/
 void setup() {
   size(1000, 800, P3D);
-  noClip();
   loop();
   for(int i = 0; i < numDice; i++) {diceList[i] = new Dice((int) (Math.random()*width), (int) (
     Math.random()*(height-110)), (float) (Math.random()*2*PI), (float) (Math.random()*2*PI), (float) (Math.random()*2*PI), 0.5, 0, 0, i);
